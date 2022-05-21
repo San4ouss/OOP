@@ -1,16 +1,24 @@
-class Zebra:
-    def __init__(self, count=0):
-        self.count = count
+class SoccerPlayer:
+    def __init__(self, name, surname):
+        self.name = name
+        self.surname = surname
+        self.goals = 0
+        self.assists = 0
 
-    def which_stripe(self):
-        self.count += 1
-        print('Полоска белая' if self.count % 2 != 0 else 'Полоска черная')
+    def score(self, goals=1):
+        self.goals += goals
+
+    def make_assist(self, assists=1):
+        self.assists += assists
+
+    def statistics(self):
+        print(f'{self.surname} {self.name} - голы: {self.goals}, передачи: {self.assists}')
 
 
-z1 = Zebra()
-z1.which_stripe()  # печатает "Полоска белая"
-z1.which_stripe()  # печатает "Полоска черная"
-z1.which_stripe()  # печатает "Полоска белая"
-
-z2 = Zebra()
-z2.which_stripe()  # печатает "Полоска белая"
+leo = SoccerPlayer('Leo', 'Messi')
+leo.score(700)
+leo.make_assist(500)
+leo.statistics()  # выводит "Messi Leo - голы: 700, передачи: 500"
+kokorin = SoccerPlayer('Alex', 'Kokorin')
+kokorin.score()
+kokorin.statistics()  # выводит "Kokorin Alex - голы: 1, передачи: 0"
